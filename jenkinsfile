@@ -1,7 +1,12 @@
 pipeline {
     agent any
 
-    stages {
+ stages {
+        stage('clone') {
+            steps {
+                 git branch: 'main', credentialsId: 'b8e710ac-da54-4a97-90e1-a7b004428bde', url: 'https://github.com/krutikasoshte/Devops77.git'
+            }
+        }
         stage('compile') {
             steps {
                 bat 'javac Hello.java'
